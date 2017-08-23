@@ -11,6 +11,8 @@ public class JavaBean {
 		this.fruit = fruit;
 	}
 
+	public JavaBean(){}
+
 	public String getFoo() {
 		return foo;
 	}

@@ -15,9 +15,34 @@
 			<bean class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository"/>
 		</constructor-arg>
 	</bean>
-	<!--
-		Provides automatic CSRF token inclusion when using Spring MVC Form tags or Thymeleaf. See
-		http://localhost:8080/#forms and form.jsp for examples
-	-->
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+        <property name="locations">
+            <list>
+                <value>mytest.properties</value>
+                <value>message.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+
+	</bean>
+
+    <bean id="javaBean"
+          class="org.springframework.samples.mvc.async.JavaBean">
+
+        <property name="foo" value="${javaBean.foo}" />
+        <property name="fruit" value="${javaBean.fruit}" />
+    </bean>
+
+    <bean id="helloMessage"
+          class="org.springframework.samples.mvc.simple.HelloMessage">
+        <property name="message" value="${helloMessage.message}" />
+    </bean>
+
+    <!--
+        Provides automatic CSRF token inclusion when using Spring MVC Form tags or Thymeleaf. See
+        http://localhost:8080/#forms and form.jsp for examples
+    -->
 	<bean id="requestDataValueProcessor" class="org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor"/>
 </beans>
