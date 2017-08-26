@@ -20,8 +20,8 @@
 
         <property name="locations">
             <list>
-                <value>mytest.properties</value>
-                <value>message.properties</value>
+                <value>classpath:mytest.properties</value>
+                <value>classpath:message.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
